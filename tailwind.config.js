@@ -1,0 +1,55 @@
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  theme: {
+    extend: {
+      height: {
+        91: "91px",
+      },
+      width: {
+        288: "288px",
+      },
+      colors: {
+        gray: "#f9f9f9",
+        gray_200: "#999999",
+        gray_300: "#8F8F8F",
+        gray_400: "#E9E9E9",
+        gray_500: "#515259",
+        gray_600: "#666666",
+        gray_700: "#EFEFEF",
+        gray_800: "#444444",
+        gray_900: "#f1f1f1",
+        active: "#293B96",
+        green: "#55D8A1",
+        shadow: "21.2406px 21.2406px 33.985px rgba(7, 6, 53, 0.1)",
+        white: "#ffffff",
+        black: "#000",
+        indigo: "#4F46E5",
+        red: "#FF4842",
+        red_200: "#FFF1F1",
+        green_200: "#E3FFF3",
+        blur: "rgba(255, 255, 255, 0.15)",
+        green_300: "#F2FFF9",
+        gold: "linear-gradient(180deg, #E8B41D 0%, #CF8226 100%)",
+        gold_100: "#E8B41D",
+        gold_200: "#CF8226",
+        purple: "#0B112F",
+        green_400: "#0EB85F",
+        green_500: "#44CF95",
+        brown: "#FFE4C2",
+        brown_200: "#F1992E",
+      },
+      fontFamily: {
+        hele: ["HelveticaNeueCyr"],
+      },
+      screens: {
+        sm: "240px",
+        md: "768px",
+        lg: "1024px",
+        xl: "1280px",
+        "2xl": "1536px",
+      },
+    },
+  },
+  plugins: [],
+};
