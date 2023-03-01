@@ -48,7 +48,7 @@ const ConfirmOtp = () => {
               color: "#1C9FDA",
               width: "64px",
               height: "60px",
-              border: value ? "1px solid #EDF8FC" : "1px solid #D0D5DD",
+              border: value ? "1px solid #1C9FDA" : "1px solid #D0D5DD",
             },
           }}
           inputRegExp={/^[0-9]$/}
