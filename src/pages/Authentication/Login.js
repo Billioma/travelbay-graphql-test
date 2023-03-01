@@ -143,7 +143,7 @@ const Login = () => {
           </a>
         </div>
 
-        <div className="bg-[#F6FBFE] flex gap-[5px] justify-center w-[85%] rounded-[8px] py-[14px] px-[24px]">
+        <div className="bg-[#F6FBFE] flex sm:flex-col lg:flex-row gap-[5px] justify-center sm:w-full lg:w-[85%] rounded-[8px] py-[14px] px-[24px]">
           <span className="text-[#667085]">Having problems logging in?</span>
           <a
             href="/register"
