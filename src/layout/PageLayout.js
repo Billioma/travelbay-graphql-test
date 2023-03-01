@@ -54,7 +54,7 @@ export const NonAuthLayout = ({ children }) => {
     <div className="text-black bg-white relative">
       <div className="flex lg:flex-row sm:flex-col min-h-screen">
         <SideBarr />
-        <div className="px-[80px] overflow-y-auto lg:w-[50%] sm:w-full pb-[100px] pt-[35px]">
+        <div className="sm:px-[40px] lg:px-[80px] overflow-y-auto lg:w-[50%] sm:w-full pb-[100px] pt-[35px]">
           {children}
         </div>
       </div>
