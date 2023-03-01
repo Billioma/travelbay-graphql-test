@@ -1,73 +1,92 @@
-import React from "react";
-import { bell, search, sms } from "../../assets/exports";
-// import SideDrawer from "./SideDrawer";
+import React, { useState } from "react";
+import { avatar, search } from "../../assets/exports";
+import { RxExit } from "react-icons/rx";
+import { useLogOut } from "../../utils/helper";
+import { useQuery } from "@apollo/client";
+import { GET_USER } from "../../services/mutation";
+import SideDrawer from "./SideDrawer";
+import { MdMenu } from "react-icons/md";
 
-const Header = () => {
+const Header = ({ showSidebar }) => {
+  const logOut = useLogOut();
+  const { data } = useQuery(GET_USER);
+
+  const [showDrawerMenu, setShowDrawerMenu] = useState(false);
+  const toggleSidebar = () => {
+    setShowDrawerMenu(true);
+  };
+
   return (
-    <div className="flex flex-col fixed z-[5] py-[10px] text-white bg-red">
-      <div className="flex pb-[20px] items-center pl-[320] pr-[48px] w-full">
-        <form>
-          <div className="flex">
-            <span>
+    <div className="flex flex-col bg-[#0F172B] w-full fixed z-[5] sm:py-[20px] lg:py-[10px] text-white">
+      <SideDrawer
+        isOpen={showDrawerMenu}
+        onClose={() => setShowDrawerMenu(false)}
+      />
+      {showSidebar ? (
+        <div className="flex justify-between py-[15px] items-center pl-[320px] pr-[58px] w-full">
+          <div className="flex gap-[15px] items-center w-full">
+            <div>
               <img src={search} alt="search" />
-            </span>
+            </div>
 
-            <input 
-              placeholder="Search students, class, course etc.."
+            <input
+              placeholder="Search flights, hotels etc.."
+              className="placeholder:text-[gray] w-[50%] placeholder:text-[13px] placeholder:p-[5px] bg-transparent border-none"
             />
           </div>
-        </form>
 
-        <div className="flex items-center gap-[18px]">
-          <img src={sms} alt="sms" />
-          <img src={bell} alt="bell" />
-          <div className="flex justify-between w-full items-center" >
-            <div className="flex gap-[20px] items-center">
-              <img src={bell} alt="bell" />
-
+          <div className="flex w-[40%] items-center gap-[10px]">
+            <div className="border rounded-full w-[55px] flex flex-col justify-center items-center border-blue-900">
+              <img src={avatar} alt="user" />
+            </div>
+            <div className="flex justify-between w-full items-center">
               <div>
-                <span>Talan James</span>
-                <span>Honeyland College</span>
+                <div className="text-[15px] font-medium">
+                  {data?.me?.firstName} {data?.me?.lastName}
+                </div>
+                <div className="text=[11px] text-[gray]">{data?.me?.email}</div>
+              </div>
+              <div className="relative par">
+                <button
+                  onClick={logOut}
+                  className="border rounded-full p-3 border-blue-900"
+                >
+                  <RxExit />
+                </button>
+                <div className="absolute logout">logout</div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      {/* {isMobile ? (
-        <Flex
-          color="#BDBDBD"
-          borderRadius="20px"
-          mt="38px"
-          border="1px solid rgba(104, 132, 202, 0.5)"
-          p="7px"
-          onClick={onOpen}
-          w="fit-content"
-          ml={isMobile ? "25px" : "320px"}
-          cursor="pointer"
-        >
-          <IoMdMenu size="20px" />
-        </Flex>
       ) : (
-        <Flex
-          align="center"
-          color="#BDBDBD"
-          borderRadius="20px"
-          mt="38px"
-          border="1px solid rgba(104, 132, 202, 0.5)"
-          p="7px"
-          w="fit-content"
-          ml={isMobile ? "20px" : "320px"}
-          gap="10px"
-          transition=".4s ease-in-out"
-          cursor="pointer"
-          _hover={{ bg: "blueBg", color: "#fff" }}
-        >
-          <RxArrowLeft />
-          <span>Back</span>
-        </Flex>
-      )} */}
-
-      {/* <SideDrawer isOpen={isOpen} onClose={onClose} /> */}
+        <div className="flex px-[30px] justify-between">
+          <div>
+            <MdMenu size="32px" onClick={toggleSidebar} />
+          </div>
+          <div className="flex w-auto items-center gap-[10px]">
+            <div className="border rounded-full w-[55px] flex flex-col justify-center items-center border-blue-900">
+              <img src={avatar} alt="user" />
+            </div>
+            <div className="flex justify-between w-full items-center">
+              <div>
+                <div className="text-[15px] font-medium">
+                  {data?.me?.firstName} {data?.me?.lastName}
+                </div>
+                <div className="text=[11px] text-[gray]">{data?.me?.email}</div>
+              </div>
+              <div className="relative par">
+                <button
+                  onClick={logOut}
+                  className="border rounded-full p-3 border-blue-900"
+                >
+                  <RxExit />
+                </button>
+                <div className="absolute logout">logout</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

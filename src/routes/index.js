@@ -15,8 +15,8 @@ const PrivateRouteWrapper = () => {
 
 const Pages = () => {
   const location = useLocation();
-  const user = localStorage.getItem("user");
-  return user ? (
+  const token = sessionStorage.getItem("token");
+  return token ? (
     <AuthLayout>
       <PrivateRouteWrapper key={location.pathname} />
     </AuthLayout>

@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { undo } from "../../assets/exports";
 import RICIBs from "react-individual-character-input-boxes";
+import { useNavigate } from "react-router-dom";
 
 const ConfirmOtp = () => {
   const [value, setValue] = useState("");
+  const navigate = useNavigate();
   const handleOutput = (string) => {
     setValue(string);
   };
@@ -23,6 +25,12 @@ const ConfirmOtp = () => {
 
   const minutes = Math.floor(timeLeft / 60);
   const seconds = timeLeft % 60;
+
+  useEffect(() => {
+    if (value.length >= 6) {
+      navigate("/change-password");
+    }
+  }, [value]);
 
   return (
     <div className="">

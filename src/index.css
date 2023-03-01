@@ -15,5 +15,68 @@
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: #0C203C;
+  background-color: #0c203c;
+}
+.transition-all {
+  transition-property: all;
+  transition-duration: 0.5s;
+  transition-timing-function: ease-in-out;
+}
+button:disabled {
+  opacity: 0.4;
+}
+.loading {
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  border: 3px solid white;
+  border-top-color: #3498db;
+  border-radius: 50%;
+  animation: spin 1s ease-in-out infinite;
+}
+.spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid white;
+  border-top-color: #3498db;
+  border-radius: 50%;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.toast {
+  position: fixed;
+  top: 10px;
+  right: 0;
+  transform: translateX(-50%);
+  color: #fff;
+  padding: 16px 25px 16px 25px;
+  border-radius: 6px;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.5s linear;
+}
+
+.success {
+  visibility: visible;
+  background-color: green;
+  opacity: 1;
+}
+
+.error {
+  visibility: visible;
+  background-color: red;
+  opacity: 1;
+}
+.logout {
+  display: none;
+}
+.par:hover .logout {
+  display: flex;
 }

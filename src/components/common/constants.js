@@ -1,41 +1,50 @@
-import { dash, dasho, noti, settings } from "../../assets/exports";
+import {
+  dash,
+  dasho,
+  slide1,
+  slide2,
+  slide3,
+  slide4,
+} from "../../assets/exports";
 
 export const general = [
   {
     id: 1,
     name: "Home",
-    path: "/",
+    path: "/home",
     icon: dash,
     sec: dasho,
   },
   {
     id: 2,
-    name: "School Portal",
-    path: "/school-portal",
-    //   icon: portal,
-    //   sec: portalo,
+    name: "Destination",
+    path: "/destination",
+    icon: dash,
+    sec: dasho,
   },
   {
     id: 3,
-    name: "Parent Mgt",
-    path: "/parent-mgt",
-    //   icon: parent,
-    //   sec: parento,
+    name: "Departure",
+    path: "/departure",
+    icon: dash,
+    sec: dasho,
   },
 ];
 
 export const accounts = [
   {
     id: 1,
-    name: "Notification",
-    path: "/notifications",
-    icon: noti,
+    name: "Profile",
+    path: "/",
+    icon: dash,
+    sec: dasho,
   },
   {
     id: 2,
     name: "Settings",
     path: "/settings",
-    icon: settings,
+    icon: dash,
+    sec: dasho,
   },
 ];
 
@@ -53,3 +62,5 @@ export const activeStyle = {
 };
 
 export const btn = [{ id: 1 }, { id: 2 }];
+
+export const slideshow = [slide1, slide2, slide3, slide4];

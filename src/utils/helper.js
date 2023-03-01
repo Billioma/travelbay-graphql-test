@@ -1,11 +1,21 @@
-export const scrollBarStyle = {
-    "&::-webkit-scrollbar": {
-      width: "6px",
-      height: "6px",
-      borderRadius: "8px",
-      backgroundColor: `rgba(0, 0, 0, 0.05)`,
-    },
-    "&::-webkit-scrollbar-thumb": {
-      backgroundColor: `rgba(0, 0, 0, 0.05)`,
-    },
+export const useLogOut = () => {
+  return () => {
+    sessionStorage.clear();
+    setTimeout(() => {
+      window.location.href = "/login";
+    }, 500);
   };
+};
+
+export const formatDateTime = (date, fallback = "") => {
+  if (!date) return fallback;
+
+  return new Date(date).toLocaleDateString("default", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+    hour: "numeric",
+    minute: "numeric",
+    second: "numeric",
+  });
+};

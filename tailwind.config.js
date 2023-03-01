@@ -12,13 +12,13 @@ module.exports = {
       colors: {
         dark: "#0C203C",
         light: "#667085",
-        btnBlue: "#1C9FDA"
+        btnBlue: "#1C9FDA",
       },
       screens: {
         sm: "240px",
         md: "768px",
-        lg: "1024px",
-        xl: "1280px",
+        lg: "991px",
+        xl: "1336px",
         "2xl": "1536px",
       },
     },
