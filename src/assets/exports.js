@@ -17,3 +17,4 @@ export { default as slide4 } from "./slide4.svg";
 export { default as avatar } from "./avatar.svg";
 export { default as user } from "./user.svg";
 export { default as phone } from "./phone.svg";
+export { default as arrow } from "./arrow.svg";

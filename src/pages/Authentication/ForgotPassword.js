@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import CustomInput from "../../components/common/CustomInput";
 
 const ForgotPassword = () => {
   const navigate = useNavigate();
+  const [value, setValue] = useState("");
+  const [error, setError] = useState(false);
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const isEmailValid = emailRegex.test(value);
+
   return (
     <div className="">
       <div className="flex justify-end hover:underline">
@@ -25,11 +30,25 @@ const ForgotPassword = () => {
         <CustomInput
           placeholder="Enter your email address name"
           label="Email Address"
+          type="email"
+          error={error}
+          onFocus={() => setError(false)}
+          onBlur={() => (isEmailValid ? setError(false) : setError(true))}
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
         />
+        <span
+          className={` ${
+            !error ? "hidden" : "flex"
+          } mt-[3px] text-[12px] text-[red]`}
+        >
+          Invalid email
+        </span>
       </div>
 
       <div className="mt-[40px] flex flex-col justify-center items-center">
         <button
+          disabled={!value || !isEmailValid}
           className="bg-btnBlue text-white font-bold rounded-[8px] h-[50px] w-full"
           onClick={() => navigate("/confirm-otp")}
         >

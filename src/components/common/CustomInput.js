@@ -13,6 +13,7 @@ const CustomInput = ({
   type,
   onBlur,
   label,
+  onFocus,
   error,
   isChecked,
 }) => {
@@ -34,9 +35,10 @@ const CustomInput = ({
               onChange={onChange}
               name={name}
               onBlur={onBlur}
+              onFocus={onFocus}
               type={type ? type : "text"}
               className={`border w-full p-[16px] ${
-                error ? "border-[#FF0000] text-[#FF0000]" : "border-[#e0e0e0]"
+                error ? "border-[#FF0000]" : "border-[#e0e0e0]"
               } rounded-[8px] border-l-0 rounded-l-none h-[50px] placeholder:text-[#667085]`}
             />
           </div>
@@ -53,6 +55,7 @@ const CustomInput = ({
               placeholder={placeholder}
               value={value}
               onBlur={onBlur}
+              onFocus={onFocus}
               name={name}
               onChange={onChange}
               type={type ? type : "text"}
@@ -85,6 +88,7 @@ const CustomInput = ({
           <input
             placeholder={placeholder}
             onBlur={onBlur}
+            onFocus={onFocus}
             name={name}
             value={value}
             onChange={onChange}
